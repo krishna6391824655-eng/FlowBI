@@ -1,0 +1,374 @@
+/* =========================
+   PAGE
+========================= */
+
+.pipeline-page {
+  min-height: calc(100vh - 72px);
+  background: #f7f9fc;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.pipeline-header {
+  height: 105px;
+
+  padding: 20px 45px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background: white;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+.pipeline-eyebrow {
+  margin: 0 0 4px;
+
+  color: #6366f1;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+.pipeline-header h1 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 24px;
+}
+
+
+.pipeline-header p:last-child {
+  margin: 5px 0 0;
+
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   RUN BUTTON
+========================= */
+
+.run-button {
+  padding: 11px 20px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #4f46e5;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.run-button:hover {
+  background: #4338ca;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   WORKSPACE
+========================= */
+
+.pipeline-workspace {
+  height: calc(100vh - 177px);
+
+  display: flex;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.module-sidebar {
+  width: 270px;
+
+  padding: 25px 20px;
+
+  background: white;
+
+  border-right: 1px solid #e5e7eb;
+}
+
+
+.module-sidebar h3 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 16px;
+}
+
+
+.module-description {
+  margin: 6px 0 20px;
+
+  color: #6b7280;
+
+  font-size: 12px;
+}
+
+
+.module-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+/* =========================
+   MODULE ITEM
+========================= */
+
+.module-item {
+  padding: 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 9px;
+
+  cursor: grab;
+
+  transition: 0.2s;
+
+  user-select: none;
+}
+
+
+.module-item:hover {
+  border-color: #c7d2fe;
+
+  background: #eef2ff;
+
+  transform: translateX(2px);
+}
+
+
+.module-item:active {
+  cursor: grabbing;
+}
+
+
+.module-item > span {
+  width: 34px;
+
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: white;
+
+  font-size: 17px;
+}
+
+
+.module-item strong {
+  display: block;
+
+  color: #374151;
+
+  font-size: 13px;
+}
+
+
+.module-item small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #9ca3af;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   CANVAS
+========================= */
+
+.pipeline-canvas {
+  flex: 1;
+
+  background: #f8fafc;
+
+  position: relative;
+}
+
+
+/* =========================
+   CUSTOM NODE
+========================= */
+
+.pipeline-node {
+  min-width: 215px;
+
+  padding: 13px 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  background: white;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 10px;
+
+  position: relative;
+
+  box-shadow:
+    0 4px 12px rgba(15, 23, 42, 0.08);
+
+  transition: 0.2s;
+}
+
+
+.pipeline-node:hover {
+  border-color: #a5b4fc;
+
+  box-shadow:
+    0 6px 18px rgba(15, 23, 42, 0.12);
+}
+
+
+/* =========================
+   NODE ICON
+========================= */
+
+.pipeline-node-icon {
+  width: 36px;
+
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #eef2ff;
+
+  border-radius: 8px;
+
+  font-size: 18px;
+}
+
+
+/* =========================
+   NODE CONTENT
+========================= */
+
+.pipeline-node-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.pipeline-node-content strong {
+  color: #111827;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+.pipeline-node-content small {
+  color: #9ca3af;
+
+  font-size: 10px;
+}
+
+
+/* =========================
+   CONNECTION HANDLES
+========================= */
+
+.pipeline-node .react-flow__handle {
+  width: 10px;
+
+  height: 10px;
+
+  background: #4f46e5;
+
+  border: 2px solid white;
+
+  border-radius: 50%;
+}
+
+
+/* =========================
+   EDGES
+========================= */
+
+.pipeline-canvas
+.react-flow__edge-path {
+  stroke-width: 2;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+  .module-sidebar {
+    width: 220px;
+  }
+
+  .pipeline-header {
+    padding: 20px;
+  }
+
+}

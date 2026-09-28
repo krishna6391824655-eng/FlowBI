@@ -1,0 +1,862 @@
+/* ========================================
+   DASHBOARD
+======================================== */
+
+.dashboard {
+  min-height: 100vh;
+  background: #f7f9fc;
+}
+
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.dashboard-hero {
+  margin: 24px 55px 0;
+  padding: 70px 65px;
+
+  min-height: 430px;
+
+  display: flex;
+  align-items: center;
+
+  background: #111827;
+  color: white;
+
+  border-radius: 20px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  right: -170px;
+  top: -170px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.12);
+}
+
+.dashboard-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  right: 180px;
+  bottom: -170px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.07);
+}
+
+.hero-content {
+  max-width: 720px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  margin: 0 0 18px;
+
+  color: #a5b4fc;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.hero-content h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 50px;
+  line-height: 1.1;
+
+  letter-spacing: -1.5px;
+}
+
+.hero-content h1 span {
+  color: #818cf8;
+}
+
+.hero-description {
+  max-width: 620px;
+
+  margin: 24px 0 0;
+
+  color: #cbd5e1;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 32px;
+}
+
+.upload-btn {
+  height: 48px;
+
+  padding: 0 21px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #6366f1;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.upload-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+.upload-btn span {
+  font-size: 20px;
+}
+
+.history-btn {
+  height: 48px;
+
+  padding: 0 12px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #c7d2fe;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.history-btn:hover {
+  color: white;
+}
+
+
+/* ========================================
+   COMMON SECTION
+======================================== */
+
+.dashboard-section,
+.features-section {
+  padding: 55px 70px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+
+.section-eyebrow {
+  margin: 0 0 7px;
+
+  color: #6366f1;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.section-header h2 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 25px;
+  font-weight: 700;
+}
+
+
+/* ========================================
+   RECENT DATASET
+======================================== */
+
+.dataset-status {
+  padding: 7px 13px;
+
+  border-radius: 20px;
+
+  background: #ecfdf5;
+  color: #047857;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.dataset-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 22px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 8px 25px rgba(15, 23, 42, 0.04);
+}
+
+.dataset-info {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.file-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #eef2ff;
+  color: #4f46e5;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.dataset-info h3 {
+  margin: 0 0 5px;
+
+  color: #111827;
+
+  font-size: 16px;
+}
+
+.dataset-info p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+.dataset-actions {
+  display: flex;
+
+  gap: 10px;
+}
+
+.dataset-actions button {
+  padding: 9px 15px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 8px;
+
+  background: white;
+  color: #374151;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.dataset-actions button:hover {
+  border-color: #6366f1;
+
+  color: #4f46e5;
+}
+
+.dataset-actions button:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+
+  background: #f9fafb;
+}
+
+.dataset-actions button:disabled:hover {
+  border-color: #d1d5db;
+
+  color: #374151;
+}
+
+
+/* ========================================
+   DATA PREVIEW
+======================================== */
+
+.preview-section {
+  padding: 10px 70px 55px;
+}
+
+.preview-count {
+  padding: 7px 13px;
+
+  border-radius: 20px;
+
+  background: #eef2ff;
+  color: #4f46e5;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.table-container {
+  width: 100%;
+
+  overflow-x: auto;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 8px 25px rgba(15, 23, 42, 0.04);
+}
+
+.preview-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 700px;
+}
+
+.preview-table th {
+  padding: 15px 18px;
+
+  background: #f8fafc;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  color: #374151;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+.preview-table td {
+  padding: 14px 18px;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  color: #6b7280;
+
+  font-size: 13px;
+
+  white-space: nowrap;
+}
+
+.preview-table tbody tr:hover {
+  background: #fafbff;
+}
+
+.preview-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* ========================================
+   FEATURES
+======================================== */
+
+.features-section {
+  padding-top: 5px;
+
+  padding-bottom: 70px;
+}
+
+.feature-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.feature-card {
+  padding: 25px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  transition: 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(15, 23, 42, 0.07);
+}
+
+.feature-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 9px;
+
+  background: #eef2ff;
+  color: #4f46e5;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.feature-card h3 {
+  margin: 0 0 9px;
+
+  color: #111827;
+
+  font-size: 17px;
+}
+
+.feature-card p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   FLOWBI APP LAYOUT
+======================================== */
+
+.dashboard-layout {
+  display: flex;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background: #f7f9fc;
+}
+
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+
+  height: 100vh;
+
+  position: fixed;
+
+  left: 0;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 28px 16px;
+
+  box-sizing: border-box;
+
+  background: #111827;
+
+  color: white;
+
+  border-right: 1px solid #1f2937;
+
+  z-index: 1000;
+}
+
+
+/* ========================================
+   SIDEBAR LOGO
+======================================== */
+
+.sidebar-logo {
+  padding: 0 14px;
+
+  margin-bottom: 40px;
+}
+
+.sidebar-logo h2 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+
+/* ========================================
+   SIDEBAR NAVIGATION
+======================================== */
+
+.sidebar-nav {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.sidebar-link {
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 14px;
+
+  border-radius: 8px;
+
+  color: #cbd5e1;
+
+  text-decoration: none;
+
+  font-size: 15px;
+
+  transition: all 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background: #1f2937;
+
+  color: white;
+}
+
+
+/* ========================================
+   SIDEBAR BOTTOM
+======================================== */
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+
+/* ========================================
+   SIDEBAR USER
+======================================== */
+
+.sidebar-user {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 16px 10px;
+
+  border-top: 1px solid #374151;
+}
+
+.sidebar-user strong {
+  display: block;
+
+  color: white;
+
+  font-size: 14px;
+}
+
+.sidebar-user small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #9ca3af;
+
+  font-size: 12px;
+}
+
+.user-avatar {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #374151;
+
+  color: white;
+
+  font-weight: 600;
+}
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+.logout-btn {
+  width: 100%;
+
+  padding: 11px 14px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #1f2937;
+
+  color: #e5e7eb;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  background: #374151;
+
+  color: white;
+}
+
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+.dashboard {
+  flex: 1;
+
+  margin-left: 250px;
+
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   RESPONSIVE - TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+  .dashboard-hero {
+    margin: 20px 30px 0;
+
+    padding: 55px 45px;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .dashboard-section,
+  .features-section,
+  .preview-section {
+    padding-left: 40px;
+
+    padding-right: 40px;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ========================================
+   RESPONSIVE - MOBILE
+======================================== */
+
+@media (max-width: 650px) {
+
+  .sidebar {
+    width: 210px;
+
+    min-width: 210px;
+
+    padding: 25px 12px;
+  }
+
+  .dashboard {
+    margin-left: 210px;
+  }
+
+  .dashboard-hero {
+    margin: 15px;
+
+    padding: 45px 25px;
+
+    min-height: 400px;
+
+    border-radius: 16px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+
+    letter-spacing: -1px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .dashboard-section,
+  .features-section {
+    padding: 40px 25px;
+  }
+
+  .preview-section {
+    padding: 5px 25px 40px;
+  }
+
+  .section-header {
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .preview-section .section-header {
+    flex-direction: column;
+  }
+
+  .dataset-card {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 450px) {
+
+  .sidebar {
+    width: 190px;
+
+    min-width: 190px;
+
+    padding: 20px 10px;
+  }
+
+  .dashboard {
+    margin-left: 190px;
+  }
+
+  .sidebar-logo {
+    margin-bottom: 25px;
+  }
+
+  .sidebar-logo h2 {
+    font-size: 20px;
+  }
+
+  .sidebar-link {
+    padding: 11px 10px;
+
+    font-size: 13px;
+  }
+
+  .dashboard-hero {
+    margin: 15px;
+
+    padding: 40px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .dataset-actions {
+    width: 100%;
+  }
+
+  .dataset-actions button {
+    flex: 1;
+  }
+}
