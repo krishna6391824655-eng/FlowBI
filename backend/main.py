@@ -149,15 +149,22 @@ class DatasetRequestTooLarge(Exception):
 app = FastAPI()
 app.add_middleware(DatasetRequestSizeLimit)
 
+default_cors_origins = {
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5174",
+    "https://flow-bi.vercel.app",
+}
+configured_cors_origins = {
+    origin.strip()
+    for origin in os.getenv("CORS_ORIGINS", "").split(",")
+    if origin.strip()
+}
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[origin.strip() for origin in os.getenv("CORS_ORIGINS", ",".join([
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:5174",
-        "http://127.0.0.1:5174"
-    ])).split(",") if origin.strip()],
+    allow_origins=sorted(default_cors_origins | configured_cors_origins),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
