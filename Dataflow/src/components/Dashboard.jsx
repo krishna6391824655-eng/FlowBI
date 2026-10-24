@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import Papa from "papaparse";
-import * as XLSX from "xlsx";
-import { useData } from "../DataContext";
-import { useState, useEffect } from "react";
+import { useData } from "../useData";
+import { API_URL } from "../api";
+import { useCallback, useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 
 import "./Dashboard.css";
@@ -18,10 +17,13 @@ function Dashboard() {
   // LOGOUT
   // =========================
 
-  const handleLogout = () => {
+  const handleLogout = useCallback(() => {
+    localStorage.removeItem("access_token");
     localStorage.removeItem("userId");
+    localStorage.removeItem("userEmail");
+    window.dispatchEvent(new Event("flowbi-user-changed"));
     navigate("/login");
-  };
+  }, [navigate]);
 
   // =========================
   // GET USER
@@ -30,21 +32,16 @@ function Dashboard() {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await fetch(
-          `http://127.0.0.1:8000/users/${userId}`
-        );
-
-        console.log(response);
+        const response = await fetch(`${API_URL}/users/me`, {
+          headers: { Authorization: `Bearer ${localStorage.getItem("access_token") || ""}` },
+        });
 
         if (!response.ok) {
-          localStorage.removeItem("userId");
-          navigate("/login");
+          if (response.status === 401) handleLogout();
           return;
         }
 
         const data = await response.json();
-
-        console.log("User data:", data);
 
         setUser(data);
       } catch (error) {
@@ -59,24 +56,18 @@ function Dashboard() {
     }
 
     console.log("User ID:", userId);
-  }, [userId, navigate]);
-
-  console.log("Logged in user:", userId);
+  }, [userId, navigate, handleLogout]);
 
   // =========================
   // DATA CONTEXT
   // =========================
 
-  const {
-    uploadedFile,
-    setUploadedFile,
-    previewData,
-    setPreviewData,
-  } = useData();
+const { addDataset, history } = useData();
 
-  const [showPreview, setShowPreview] = useState(false);
-  const [loading, setLoading] = useState(false);
-
+const [uploadedFile, setUploadedFile] = useState(null);
+const [previewData, setPreviewData] = useState([]);
+const [showPreview, setShowPreview] = useState(false);
+const [loading, setLoading] = useState(false);
   // =========================
   // FILE UPLOAD
   // =========================
@@ -105,6 +96,11 @@ function Dashboard() {
       return;
     }
 
+    if (selectedFile.size > 20 * 1024 * 1024) {
+      alert("Files must be 20 MB or smaller. Split this file into smaller parts and upload again.");
+      return;
+    }
+
     setUploadedFile(selectedFile);
     setPreviewData([]);
     setShowPreview(false);
@@ -114,116 +110,30 @@ function Dashboard() {
   // PREVIEW
   // =========================
 
-  const handlePreview = () => {
+  const handlePreview = async () => {
     if (!uploadedFile) {
       alert("Please upload a file first.");
       return;
     }
-
     setLoading(true);
-
-    const extension = uploadedFile.name
-      .substring(
-        uploadedFile.name.lastIndexOf(".")
-      )
-      .toLowerCase();
-
-    // =========================
-    // CSV
-    // =========================
-
-    if (extension === ".csv") {
-      Papa.parse(uploadedFile, {
-        header: true,
-        skipEmptyLines: true,
-
-        complete: (results) => {
-          console.log("CSV Preview:", results.data);
-
-          if (results.data.length === 0) {
-            alert("The CSV file is empty.");
-            setLoading(false);
-            return;
-          }
-
-          setPreviewData(results.data);
-          setShowPreview(true);
-          setLoading(false);
-        },
-
-        error: (error) => {
-          console.error("CSV Error:", error);
-          alert("Unable to read CSV file.");
-          setLoading(false);
-        },
+    try {
+      const response = await fetch(`${API_URL}/datasets`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${localStorage.getItem("access_token") || ""}`, "X-Filename": encodeURIComponent(uploadedFile.name), "Content-Type": uploadedFile.type || "application/octet-stream" },
+        body: uploadedFile,
       });
-
-      return;
+      const result = await response.json().catch(() => ({}));
+      if (response.status === 401) { handleLogout(); return; }
+      if (!response.ok) throw new Error(result.detail || "Dataset upload failed.");
+      const rows = result.data || [];
+      addDataset({ id: result.id, name: result.name, previewData: rows });
+      setPreviewData(rows);
+      setShowPreview(true);
+    } catch (error) {
+      alert(error.message || "Could not upload this dataset.");
+    } finally {
+      setLoading(false);
     }
-
-    // =========================
-    // EXCEL
-    // =========================
-
-    const reader = new FileReader();
-
-    reader.onload = (event) => {
-      try {
-        const data = new Uint8Array(
-          event.target.result
-        );
-
-        const workbook = XLSX.read(data, {
-          type: "array",
-        });
-
-        const firstSheetName =
-          workbook.SheetNames[0];
-
-        const firstSheet =
-          workbook.Sheets[firstSheetName];
-
-        const jsonData =
-          XLSX.utils.sheet_to_json(
-            firstSheet,
-            {
-              defval: "",
-            }
-          );
-
-        console.log(
-          "Excel Preview:",
-          jsonData
-        );
-
-        if (jsonData.length === 0) {
-          alert("The Excel file is empty.");
-          setLoading(false);
-          return;
-        }
-
-        setPreviewData(jsonData);
-        setShowPreview(true);
-
-      } catch (error) {
-        console.error(
-          "Excel Error:",
-          error
-        );
-
-        alert("Unable to read the file.");
-
-      }
-
-      setLoading(false);
-    };
-
-    reader.onerror = () => {
-      alert("Unable to read the file.");
-      setLoading(false);
-    };
-
-    reader.readAsArrayBuffer(uploadedFile);
   };
 
   // =========================
@@ -326,8 +236,9 @@ function Dashboard() {
               <button
                 className="history-btn"
                 type="button"
+                onClick={() => navigate("/history")}
               >
-                View History →
+                View History ({history.length}) →
               </button>
 
             </div>
@@ -415,19 +326,18 @@ function Dashboard() {
                 onClick={handlePreview}
                 disabled={
                   !uploadedFile ||
-                  loading
+                  loading ||
+                  previewData.length > 0
                 }
               >
 
-                {loading
-                  ? "Loading..."
-                  : "Preview"}
+                {loading ? "Loading..." : previewData.length > 0 ? "Preview ready" : "Preview"}
 
               </button>
 
               <button
                 type="button"
-                disabled={!uploadedFile}
+                disabled={!previewData.length}
                 onClick={openPipeline}
               >
                 Open Pipeline →

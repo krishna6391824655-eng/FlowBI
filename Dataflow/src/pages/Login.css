@@ -298,7 +298,8 @@
   margin: 0;
 }
 
-.login-password-header a {
+.login-password-header a,
+.login-password-header button {
   color: #4f46e5;
 
   font-size: 13px;
@@ -306,9 +307,19 @@
   text-decoration: none;
 }
 
-.login-password-header a:hover {
+.login-password-header a:hover,
+.login-password-header button:hover {
   text-decoration: underline;
 }
+
+.auth-text-button { padding: 0; border: 0; background: transparent; color: #4f46e5; font: inherit; font-size: 13px; cursor: pointer; }
+.auth-text-button:hover { text-decoration: underline; }
+.login-password-control .password-field { width: 100%; }
+.auth-feedback { margin: 0; color: #4f46e5; font-size: 13px; line-height: 1.5; }
+.auth-password-form { margin-top: 20px; }
+.reset-password-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; background: #f7f9fc; }
+:root[data-theme="dark"] .reset-password-page { background: #0b1220; }
+:root[data-theme="dark"] .auth-text-button { color: #a5b4fc; }
 
 
 /* =========================

@@ -2,6 +2,7 @@
 .venv/
 __pycache__/
 *.pyc
+*.sqlite3
 
 # Node
 node_modules/
@@ -10,6 +11,7 @@ dist/
 # Environment
 .env
 .env.*
+!.env.example
 
 # Python cache
 .pytest_cache/

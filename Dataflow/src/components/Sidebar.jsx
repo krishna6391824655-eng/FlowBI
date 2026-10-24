@@ -1,10 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 function Sidebar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    localStorage.removeItem("access_token");
     localStorage.removeItem("userId");
+    localStorage.removeItem("userEmail");
+    window.dispatchEvent(new Event("flowbi-user-changed"));
     navigate("/login");
   };
 
@@ -15,9 +19,15 @@ function Sidebar() {
         <h2>FlowBI</h2>
       </div>
 
+      <div className="sidebar-theme"><ThemeToggle /></div>
+
       <nav className="sidebar-nav">
-        <Link to="/" className="sidebar-link">
+        <Link to="/dashboard" className="sidebar-link">
           🏠 Dashboard
+        </Link>
+
+        <Link to="/insights" className="sidebar-link">
+          ✦ Data insights
         </Link>
 
         <Link to="/datasets" className="sidebar-link">

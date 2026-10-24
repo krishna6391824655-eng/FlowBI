@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { API_URL } from "../api";
+import PasswordField from "../components/PasswordField";
 import "./Register.css";
 
 function Register() {
@@ -9,6 +11,7 @@ function Register() {
     password: "",
     confirmPassword: ""
   });
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -19,14 +22,16 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submitting) return;
 
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
 
+    setSubmitting(true);
     try {
-      const response = await fetch("http://127.0.0.1:8000/users", {
+      const response = await fetch(`${API_URL}/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -57,6 +62,8 @@ function Register() {
     } catch (error) {
       console.error(error);
       alert("Backend server is not connected");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -139,32 +146,11 @@ function Register() {
               />
             </div>
 
-            <div className="input-group">
-              <label>Password</label>
-              <input
-                type="password"
-                name="password"
-                placeholder="Create a password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
-            </div>
+            <PasswordField className="input-group" id="register-password" label="Password" name="password" placeholder="Create a password" autoComplete="new-password" value={formData.password} onChange={handleChange} />
+            <PasswordField className="input-group" id="confirm-password" label="Confirm Password" name="confirmPassword" placeholder="Confirm your password" autoComplete="new-password" value={formData.confirmPassword} onChange={handleChange} />
 
-            <div className="input-group">
-              <label>Confirm Password</label>
-              <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirm your password"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <button type="submit">
-              Create Account
+            <button type="submit" disabled={submitting}>
+              {submitting ? "Creating account…" : "Create Account"}
               <span>→</span>
             </button>
 

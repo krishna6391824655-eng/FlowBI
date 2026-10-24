@@ -1,0 +1,476 @@
+/* ========================================
+   FLOWBI LANDING PAGE
+======================================== */
+
+.landing-page {
+  min-height: 100vh;
+  background: #f7f9fc;
+  color: #111827;
+}
+
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+.landing-navbar {
+  height: 72px;
+
+  padding: 0 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #111827;
+
+  color: white;
+}
+
+.landing-logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.landing-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-nav-links button {
+  height: 42px;
+
+  padding: 0 17px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #cbd5e1;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.landing-nav-links button:hover {
+  color: white;
+  background: #1f2937;
+}
+
+.landing-nav-links .landing-register {
+  background: #6366f1;
+  color: white;
+}
+
+.landing-nav-links .landing-register:hover {
+  background: #4f46e5;
+}
+
+
+/* ========================================
+   MAIN
+======================================== */
+
+.landing-main {
+  max-width: 1250px;
+
+  margin: auto;
+
+  padding: 24px 55px 70px;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.landing-hero {
+  min-height: 480px;
+
+  padding: 70px 65px;
+
+  display: flex;
+  align-items: center;
+
+  background: #111827;
+
+  color: white;
+
+  border-radius: 20px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/* Decorative circles */
+
+.landing-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  right: -170px;
+  top: -170px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.12);
+}
+
+.landing-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  right: 180px;
+  bottom: -170px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.07);
+}
+
+
+/* ========================================
+   HERO CONTENT
+======================================== */
+
+.landing-hero-content {
+  max-width: 720px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.landing-eyebrow {
+  margin: 0 0 18px;
+
+  color: #a5b4fc;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.landing-hero h1 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 50px;
+
+  line-height: 1.1;
+
+  letter-spacing: -1.5px;
+}
+
+.landing-hero h1 span {
+  color: #818cf8;
+}
+
+.landing-description {
+  max-width: 620px;
+
+  margin: 24px 0 0;
+
+  color: #cbd5e1;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   HERO ACTIONS
+======================================== */
+
+.landing-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 32px;
+}
+
+.primary-action {
+  height: 48px;
+
+  padding: 0 21px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #6366f1;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.primary-action:hover {
+  background: #4f46e5;
+
+  transform: translateY(-1px);
+}
+
+.secondary-action {
+  height: 48px;
+
+  padding: 0 12px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #c7d2fe;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.secondary-action:hover {
+  color: white;
+}
+
+
+/* ========================================
+   WORKFLOW SECTION
+======================================== */
+
+.landing-workflow {
+  padding: 55px 0 5px;
+}
+
+.landing-section-header {
+  margin-bottom: 22px;
+}
+
+.landing-section-eyebrow {
+  margin: 0 0 7px;
+
+  color: #6366f1;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.landing-section-header h2 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 25px;
+  font-weight: 700;
+}
+
+
+/* ========================================
+   FEATURE GRID
+======================================== */
+
+.landing-features {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.landing-feature {
+  padding: 25px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  transition: 0.2s;
+}
+
+.landing-feature:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(15, 23, 42, 0.07);
+}
+
+
+/* ========================================
+   FEATURE ICON
+======================================== */
+
+.landing-feature-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 9px;
+
+  background: #eef2ff;
+
+  color: #4f46e5;
+
+  font-size: 18px;
+
+  font-weight: 700;
+}
+
+.landing-feature h3 {
+  margin: 0 0 9px;
+
+  color: #111827;
+
+  font-size: 17px;
+}
+
+.landing-feature p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   RESPONSIVE - TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+  .landing-main {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .landing-hero {
+    padding: 55px 45px;
+  }
+
+  .landing-hero h1 {
+    font-size: 42px;
+  }
+
+  .landing-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ========================================
+   RESPONSIVE - MOBILE
+======================================== */
+
+@media (max-width: 650px) {
+
+  .landing-navbar {
+    padding: 0 25px;
+  }
+
+  .landing-main {
+    padding: 15px;
+  }
+
+  .landing-hero {
+    min-height: 400px;
+
+    padding: 45px 25px;
+
+    border-radius: 16px;
+  }
+
+  .landing-hero h1 {
+    font-size: 36px;
+
+    letter-spacing: -1px;
+  }
+
+  .landing-description {
+    font-size: 15px;
+  }
+
+  .landing-actions {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .landing-features {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-workflow {
+    padding: 40px 10px;
+  }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 450px) {
+
+  .landing-navbar {
+    padding: 0 15px;
+  }
+
+  .landing-logo {
+    font-size: 20px;
+  }
+
+  .landing-nav-links button {
+    padding: 0 10px;
+
+    font-size: 13px;
+  }
+
+  .landing-hero {
+    padding: 40px 20px;
+  }
+
+  .landing-hero h1 {
+    font-size: 32px;
+  }
+
+  .landing-description {
+    font-size: 14px;
+  }
+}
