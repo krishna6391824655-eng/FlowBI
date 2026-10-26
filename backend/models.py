@@ -107,7 +107,7 @@ class PipelineRun(Base):
 
     created_at = Column(
         DateTime,
-        default=lambda:datetime.now(ZoneInfo("Asia/kolkata")
+        default=lambda:datetime.now(ZoneInfo("Asia/Kolkata")
         )
     )
 
