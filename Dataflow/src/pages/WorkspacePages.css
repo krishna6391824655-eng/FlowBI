@@ -178,3 +178,26 @@
 :root[data-theme="dark"] .run-detail-steps em { background: #272950; color: #c7c5ff; }
 :root[data-theme="dark"] .run-detail-table th { background: #101a29; }
 @media (max-width: 700px) { .run-actions { flex-direction: column; align-items: stretch; }.run-actions .workspace-button { padding: 8px; font-size: 11px; }.run-detail-backdrop { padding: 8px; }.run-detail-dialog { gap: 14px; padding: 16px; max-height: 94vh; }.run-detail-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+@media (max-width: 760px) {
+  .workspace-dashboard { padding: 26px 18px 96px !important; }
+  .workspace-content { margin-top: 22px; }
+  .history-toolbar, .analytics-welcome { align-items: stretch; flex-direction: column; }
+  .history-tools { width: 100%; flex-wrap: wrap; }
+  .history-search { width: 100%; }
+  .analytics-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .analytics-grid { grid-template-columns: minmax(0, 1fr); }
+  .settings-layout { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .workspace-dashboard { padding: 22px 14px 94px !important; }
+  .workspace-dashboard h1 { font-size: 30px; }
+  .history-summary { grid-template-columns: minmax(0, 1fr); }
+  .analytics-metrics { gap: 9px; }
+  .analytics-metric { padding: 13px 11px; gap: 9px; }
+  .analytics-metric small { font-size: 8px; }
+  .analytics-metric strong { font-size: 21px; }
+  .appearance-options { grid-template-columns: minmax(0, 1fr); }
+  .settings-form-footer { align-items: flex-start; flex-direction: column; }
+}

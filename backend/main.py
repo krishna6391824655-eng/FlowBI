@@ -165,6 +165,9 @@ configured_cors_origins = {
 app.add_middleware(
     CORSMiddleware,
     allow_origins=sorted(default_cors_origins | configured_cors_origins),
+    # Vercel gives branch deployments and individual previews different URLs.
+    # Allow this project's deployment domains under its team namespace.
+    allow_origin_regex=r"^https://(?:flow-[a-z0-9]+|flow-bi-git-main)-krishnas-projects-9a9f637c\.vercel\.app$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

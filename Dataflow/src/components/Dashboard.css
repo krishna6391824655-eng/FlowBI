@@ -860,3 +860,65 @@
     flex: 1;
   }
 }
+
+/* Keep the workspace usable on phones: navigation becomes a compact scrollable
+   dock and content can use the full viewport width. */
+@media (max-width: 760px) {
+  .sidebar {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
+    border-top: 1px solid #374151;
+    border-right: 0;
+  }
+
+  .sidebar-logo,
+  .sidebar-theme,
+  .sidebar-bottom { display: none; }
+
+  .sidebar-nav {
+    flex-direction: row;
+    gap: 5px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .sidebar-nav::-webkit-scrollbar { display: none; }
+  .sidebar-link {
+    flex: 0 0 auto;
+    width: auto;
+    min-height: 44px;
+    justify-content: center;
+    padding: 9px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .dashboard { width: 100%; margin-left: 0; padding-bottom: 78px; }
+  .dashboard-hero { min-height: 0; padding: 38px 24px; }
+  .hero-content h1 { font-size: clamp(30px, 8vw, 40px); }
+  .hero-actions { flex-wrap: wrap; gap: 8px; }
+  .dashboard-section, .features-section { padding: 34px 20px; }
+  .preview-section { padding: 0 20px 34px; }
+  .section-header { flex-wrap: wrap; }
+  .dataset-card { min-width: 0; }
+  .dataset-info { min-width: 0; }
+  .dataset-info > div:last-child { min-width: 0; overflow-wrap: anywhere; }
+  .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .dashboard-hero { margin: 12px; padding: 32px 20px; }
+  .dashboard-section, .features-section { padding: 28px 16px; }
+  .preview-section { padding: 0 16px 28px; }
+  .hero-actions { align-items: stretch; flex-direction: column; }
+  .upload-btn, .history-btn { justify-content: center; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .dataset-actions { flex-wrap: wrap; }
+}
