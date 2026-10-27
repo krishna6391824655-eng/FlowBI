@@ -1,60 +1,83 @@
 # FlowBI — AI-Powered Data Analytics Platform
 
-FlowBI is a web-based data analytics platform designed to help users upload, clean, process, visualize, and analyze datasets through interactive workflows and AI-powered insights.
+<p align="center">
+  <img src="assets/flowbi-banner.svg" alt="FlowBI — AI-powered data analytics platform banner" width="100%" />
+</p>
 
-## 🚀 Live Demo
+<p align="center">
+  <b>Upload data. Build visual workflows. Explore insights with AI.</b><br/>
+  A web-based analytics platform for data preparation, statistical summaries, visualizations, and natural-language dataset exploration.
+</p>
 
-**Try FlowBI:** https://flow-bi.vercel.app/
+<p align="center">
+  <a href="https://flow-bi.vercel.app/"><strong>🚀 Open Live Demo</strong></a>
+</p>
+
+---
 
 ## ✨ Features
 
-* **Dataset Management:** Upload and preview CSV and Excel files.
-* **Data Cleaning:** Handle missing values and remove duplicate records.
-* **Visual Pipeline Builder:** Create and connect data-processing modules through a visual workflow.
-* **Statistical Analysis:** Explore dataset statistics and numerical summaries.
-* **Data Visualization:** Generate visual representations of processed data.
-* **AI Data Assistant:** Ask natural-language questions about datasets using an LLM-powered assistant.
-* **Analytics Dashboard:** Review dataset statistics, processing activity, and data quality metrics.
-* **User Interface:** Dashboard, dataset management, history, and account settings.
+- **CSV and Excel upload** — upload datasets and preview tabular data.
+- **Data cleaning** — handle missing values and remove duplicate records.
+- **Visual pipeline builder** — connect data-processing steps in a node-based workflow.
+- **Statistical summaries** — inspect dataset dimensions and numerical summaries.
+- **Data visualization** — explore processed data with charts.
+- **LLM-powered data assistant** — ask questions about a dataset in natural language.
+- **Analytics dashboard** — review dataset and processing information.
+- **Dockerized setup** — containerization support for a more reproducible development/deployment workflow.
 
-## 🛠️ Technology Stack
+## 🖥️ Live Application
 
-* Frontend: React.js
-* Backend: Python and FastAPI
-* Database: PostgreSQL
-* AI Integration: Large Language Model (LLM)
-* Containerization: Docker
+**Live demo:** https://flow-bi.vercel.app/
 
-*Note: Confirm that each technology listed above is used in the current implementation.*
+Explore the deployed application to see the current UI and available functionality. Feature availability may vary with the deployed version and configured services.
+
+## 🧰 Technology Stack
+
+| Area | Technologies |
+| --- | --- |
+| Frontend | React, Vite |
+| Backend / API | Python, FastAPI |
+| Data storage | PostgreSQL |
+| AI integration | LLM-powered assistant |
+| Data processing | Python data-processing workflows |
+| Deployment / packaging | Vercel (frontend), Docker |
+
+## 🔄 Example Workflow
+
+1. Upload a CSV or Excel dataset.
+2. Preview the data and review its structure.
+3. Build a pipeline using steps such as loading data, handling missing values, removing duplicates, and generating statistics.
+4. Run the workflow and review the processed output and charts.
+5. Ask the AI assistant questions about the dataset.
 
 ## 📸 Screenshots
 
-The application includes the following interfaces:
+For the latest interface, visit the [live demo](https://flow-bi.vercel.app/).
 
-1. Login and authentication
-2. Main dashboard
-3. Visual pipeline builder
-4. AI-powered data assistant
-5. Analytics dashboard
+Suggested screenshots to add:
+- Dashboard and dataset overview
+- Dataset preview and data insights
+- Visual pipeline builder and execution results
+- AI assistant answering dataset-specific questions
 
-## 🎯 Project Objective
+## 🎯 Project Goal
 
-The goal of FlowBI is to make data analysis more accessible by combining data preparation, visual workflows, analytics, and AI-assisted exploration in one application.
+FlowBI brings data preparation, visual processing workflows, analytics, and AI-assisted exploration together in one application. The aim is to make common data-analysis tasks easier to follow without requiring every step to be written manually.
 
-## 🔮 Future Improvements
+## 🛣️ Potential Improvements
 
-* Expand data-processing capabilities.
-* Improve AI-generated analytical insights.
-* Add more visualization options.
-* Enhance data validation and error handling.
-* Continue improving deployment and application performance.
+- Add more configurable transformation nodes.
+- Expand chart types and export options.
+- Improve validation, error handling, and pipeline observability.
+- Add richer dataset history and user-level data management.
+- Improve AI response grounding and display the data evidence behind answers.
 
 ## 👨‍💻 Developer
 
-**Krishna Gupta**
-
-GitHub: [krishna6391824655-eng](https://github.com/krishna6391824655-eng)
+**Krishna Gupta**  
+GitHub: [@krishna6391824655-eng](https://github.com/krishna6391824655-eng)
 
 ## 📄 License
 
-A license has not yet been specified. Check the repository's licensing requirements before reusing or distributing this project.
+No license information is currently stated in this README. Add a license file if you intend to define permissions for reuse and distribution.
