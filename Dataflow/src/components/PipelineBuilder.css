@@ -36,6 +36,22 @@
   font-size: 20px;
 }
 
+.pipeline-back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  margin: 0 0 14px;
+  padding: 0 11px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  color: #4338ca;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pipeline-back-link:hover { background: #eef2ff; }
+
 
 /* =========================================================
    SELECTED DATASET

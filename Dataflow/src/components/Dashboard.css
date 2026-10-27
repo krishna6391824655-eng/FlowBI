@@ -861,22 +861,25 @@
   }
 }
 
-/* Keep the workspace usable on phones: navigation becomes a compact scrollable
-   dock and content can use the full viewport width. */
+/* Keep the workspace usable on phones with fixed, scrollable top navigation. */
+.pipeline-page > .sidebar { display: none; }
+
 @media (max-width: 760px) {
   .sidebar {
-    top: auto;
+    top: 0;
     right: 0;
-    bottom: 0;
+    bottom: auto;
     left: 0;
     width: 100%;
     min-width: 0;
     height: auto;
-    padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
-    border-top: 1px solid #374151;
+    padding: calc(8px + env(safe-area-inset-top)) 8px 8px;
+    border-top: 0;
     border-right: 0;
+    border-bottom: 1px solid #374151;
   }
 
+  .pipeline-page > .sidebar { display: flex; }
   .sidebar-logo,
   .sidebar-theme,
   .sidebar-bottom { display: none; }
@@ -900,7 +903,8 @@
     white-space: nowrap;
   }
 
-  .dashboard { width: 100%; margin-left: 0; padding-bottom: 78px; }
+  .dashboard { width: 100%; margin-left: 0; padding-top: calc(62px + env(safe-area-inset-top)); padding-bottom: 0; }
+  .pipeline-page { padding-top: calc(62px + env(safe-area-inset-top)); }
   .dashboard-hero { min-height: 0; padding: 38px 24px; }
   .hero-content h1 { font-size: clamp(30px, 8vw, 40px); }
   .hero-actions { flex-wrap: wrap; gap: 8px; }

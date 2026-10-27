@@ -38,10 +38,13 @@ import { toPng } from "html-to-image";
 
 import "@xyflow/react/dist/style.css";
 import "./PipelineBuilder.css";
+import "./Dashboard.css";
 
 import { useData } from "../useData";
 import { API_URL } from "../api";
 import ThemeToggle from "./ThemeToggle";
+import Sidebar from "./Sidebar";
+import { Link } from "react-router-dom";
 
 
 /* =========================================================
@@ -889,10 +892,12 @@ Created: ${createdAt}`
 
   return (
     <div className="pipeline-page">
+      <Sidebar />
 
       {/* SIDEBAR */}
 
       <aside className="pipeline-sidebar">
+        <Link className="pipeline-back-link" to="/dashboard">← Back to Dashboard</Link>
         <div className="pipeline-theme-toggle"><ThemeToggle /></div>
         <h2>Pipeline Builder</h2>
 

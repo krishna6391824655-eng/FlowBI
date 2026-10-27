@@ -180,7 +180,7 @@
 @media (max-width: 700px) { .run-actions { flex-direction: column; align-items: stretch; }.run-actions .workspace-button { padding: 8px; font-size: 11px; }.run-detail-backdrop { padding: 8px; }.run-detail-dialog { gap: 14px; padding: 16px; max-height: 94vh; }.run-detail-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 @media (max-width: 760px) {
-  .workspace-dashboard { padding: 26px 18px 96px !important; }
+  .workspace-dashboard { padding: calc(74px + env(safe-area-inset-top)) 18px 30px !important; }
   .workspace-content { margin-top: 22px; }
   .history-toolbar, .analytics-welcome { align-items: stretch; flex-direction: column; }
   .history-tools { width: 100%; flex-wrap: wrap; }
@@ -191,7 +191,7 @@
 }
 
 @media (max-width: 480px) {
-  .workspace-dashboard { padding: 22px 14px 94px !important; }
+  .workspace-dashboard { padding: calc(74px + env(safe-area-inset-top)) 14px 28px !important; }
   .workspace-dashboard h1 { font-size: 30px; }
   .history-summary { grid-template-columns: minmax(0, 1fr); }
   .analytics-metrics { gap: 9px; }
