@@ -5,17 +5,9 @@ on:
     branches:
       - main
       - ci-cd-setup
-    paths:
-      - "Dataflow/**"
-      - "backend/**"
-      - ".github/workflows/**"
   pull_request:
     branches:
       - main
-    paths:
-      - "Dataflow/**"
-      - "backend/**"
-      - ".github/workflows/**"
   workflow_dispatch:
 
 permissions:
