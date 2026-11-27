@@ -1,0 +1,14 @@
+name: FlowBI CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Welcome
+        run: echo "FlowBI CI Pipeline Started"
