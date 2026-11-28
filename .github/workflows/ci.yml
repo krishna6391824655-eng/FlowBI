@@ -1,3 +1,4 @@
+
 name: FlowBI CI
 
 on:
@@ -11,5 +12,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout repository
       - name: Checkout repository
-        run: actions/checkout@v4
+        uses: actions/checkout@v4
+
+      # Step 2: Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: Dataflow/package-lock.json
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm ci
+        working-directory: Dataflow
+
+      # Step 4: Run Lint
+      - name: Run Lint
+        run: npm run lint
+        working-directory: Dataflow
+
+      # Step 5: Build Frontend
+      - name: Build Frontend
+        run: npm run build
+        working-directory: Dataflow
