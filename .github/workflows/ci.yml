@@ -11,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Welcome
-        run: echo "FlowBI CI Pipeline Started"
+      - name: Checkout repository
+        run: actions/checkout@v4
